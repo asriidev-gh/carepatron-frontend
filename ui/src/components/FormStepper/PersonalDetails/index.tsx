@@ -22,6 +22,7 @@ const PersonalDetails = ({ onClickNext, register, errors, watch }: PersonalDetai
 						First name
 					</InputLabel>
 					<TextField
+						inputProps={{ 'data-testid': 'input-first-name' }}
 						variant='outlined'
 						sx={{ width: '100%' }}
 						{...register('firstName', { required: true })}
@@ -35,8 +36,11 @@ const PersonalDetails = ({ onClickNext, register, errors, watch }: PersonalDetai
 						Last name
 					</InputLabel>
 					<TextField
+						inputProps={{ 'data-testid': 'input-last-name' }}
 						variant='outlined'
 						sx={{ width: '100%' }}
+						error={!!errors?.lastName}
+						helperText={errors?.lastName?.message}
 						{...register('lastName', { required: true })}
 					/>
 					{errors?.lastName?.type === 'required' && <p>This field is required</p>}
@@ -44,6 +48,7 @@ const PersonalDetails = ({ onClickNext, register, errors, watch }: PersonalDetai
 			</Stack>
 			<Grid container justifyContent='flex-end'>
 				<Button
+					data-testid='continue-new-client-btn'
 					variant='contained'
 					sx={{ textTransform: 'none', width: '100px', height: '40px' }}
 					disabled={!watch('firstName') || !watch('lastName')}

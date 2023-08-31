@@ -1,5 +1,4 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import './App.css';
 import DataProvider from './store/DataProvider';
 import Clients from './pages/Clients';
@@ -10,10 +9,12 @@ export default function App() {
 		<div className='App'>
 			<LanguageSelector />
 			<DataProvider>
-				<Routes>
-					<Route path='/' element={<Clients />} />
-					<Route path='/Clients' element={<Clients />} />
-				</Routes>
+				<BrowserRouter>
+					<Routes>
+						<Route path='/' element={<Clients />} />
+						<Route path='/Clients' element={<Clients />} />
+					</Routes>
+				</BrowserRouter>
 			</DataProvider>
 		</div>
 	);

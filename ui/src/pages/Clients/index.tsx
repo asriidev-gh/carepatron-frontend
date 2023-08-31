@@ -53,7 +53,13 @@ function Clients() {
 					placeholder={`${t('Search clients')}...`}
 					onHandleSearch={(value) => setSearchValue(value)}
 				/>
-				<Button variant='contained' sx={{ textTransform: 'none' }} disableElevation onClick={handleOpen}>
+				<Button
+					data-testid='create-new-client-btn'
+					variant='contained'
+					sx={{ textTransform: 'none' }}
+					disableElevation
+					onClick={handleOpen}
+				>
 					{t('Create new client')}
 				</Button>
 			</Grid>

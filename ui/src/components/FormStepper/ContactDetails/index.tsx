@@ -23,6 +23,7 @@ const ContactDetails = ({ onClickBack, register, errors, watch }: ContactDetails
 						Email
 					</InputLabel>
 					<TextField
+						inputProps={{ 'data-testid': 'input-email' }}
 						variant='outlined'
 						sx={{ width: '100%' }}
 						error={!!errors?.email}
@@ -37,13 +38,15 @@ const ContactDetails = ({ onClickBack, register, errors, watch }: ContactDetails
 						Phone number
 					</InputLabel>
 					<TextField
+						data-testid='submit-new-client-btn'
+						inputProps={{ 'data-testid': 'input-phone-no' }}
 						variant='outlined'
 						sx={{ width: '100%' }}
 						error={!!errors?.phoneNumber}
+						helperText={errors?.phoneNumber?.message}
 						{...register('phoneNumber', {
 							required: true,
 						})}
-						helperText={errors?.phoneNumber?.message}
 					/>
 				</div>
 			</Stack>
