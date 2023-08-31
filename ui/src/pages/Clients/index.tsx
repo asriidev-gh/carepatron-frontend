@@ -8,6 +8,7 @@ import SearchTextInput from '../../components/SearchInput';
 import Modal from '../../components/Modal';
 import FormStepper from '../../components/FormStepper';
 import { Toaster } from 'react-hot-toast';
+import { useTranslation } from 'react-i18next';
 
 function Clients() {
 	const { state, dispatch } = useContext(StateContext);
@@ -16,6 +17,8 @@ function Clients() {
 	const [searchValue, setSearchValue] = useState<string>('');
 	const [open, setOpen] = useState<boolean>(false);
 	const [clientsData, setClientsData] = useState<IClient[] | []>(clients);
+
+	const { t } = useTranslation();
 
 	useEffect(() => {
 		getClients().then((clients) => dispatch({ type: 'FETCH_ALL_CLIENTS', data: clients }));
@@ -41,17 +44,17 @@ function Clients() {
 	return (
 		<Page>
 			<Typography variant='h4' sx={{ textAlign: 'start' }}>
-				Clients
+				{t('Clients')}
 			</Typography>
 
 			<Grid container justifyContent='space-between'>
 				<SearchTextInput
 					searchValue={searchValue}
-					placeholder='Search clients..'
+					placeholder={`${t('Search clients')}...`}
 					onHandleSearch={(value) => setSearchValue(value)}
 				/>
 				<Button variant='contained' sx={{ textTransform: 'none' }} disableElevation onClick={handleOpen}>
-					Create new client
+					{t('Create new client')}
 				</Button>
 			</Grid>
 

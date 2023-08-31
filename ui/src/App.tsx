@@ -5,6 +5,7 @@ import DataProvider from './store/DataProvider';
 import Clients from './pages/Clients';
 import { green } from '@mui/material/colors';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import LanguageSelector from './components/LanguageSelector';
 
 const theme = createTheme({
 	components: {
@@ -24,6 +25,7 @@ export default function App() {
 	return (
 		<div className='App'>
 			<ThemeProvider theme={theme}>
+				<LanguageSelector />
 				<DataProvider>
 					<Routes>
 						<Route path='/' element={<Clients />} />

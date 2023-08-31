@@ -1,0 +1,9 @@
+{
+	"Name": "名前",
+	"Phone number": "電話番号",
+	"Email": "Eメール",
+	"Clients": "クライアント",
+	"Create new client": "新しいクライアントを作成する",
+	"Search clients": "クライアントを検索する",
+	"No clients": "クライアントがいません"
+}
