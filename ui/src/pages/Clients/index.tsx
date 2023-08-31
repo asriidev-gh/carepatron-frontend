@@ -7,6 +7,7 @@ import { getClients } from '../../services/api';
 import SearchTextInput from '../../components/SearchInput';
 import Modal from '../../components/Modal';
 import FormStepper from '../../components/FormStepper';
+import { Toaster } from 'react-hot-toast';
 
 function Clients() {
 	const { state, dispatch } = useContext(StateContext);
@@ -46,6 +47,8 @@ function Clients() {
 			<Modal open={open} handleClose={handleClose} title='Create new client'>
 				<FormStepper handleClose={handleClose} />
 			</Modal>
+
+			<Toaster position='top-center' reverseOrder={true} />
 		</Page>
 	);
 }
