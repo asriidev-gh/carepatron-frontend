@@ -40,7 +40,7 @@ const FormStepper = ({ handleClose }: FormStepperProps) => {
 		};
 
 		createClient(payload).then((client) => {
-			getClients().then((clients) => dispatch({ type: 'FETCH_ALL_CLIENTS', data: clients }));
+			getClients().then(() => dispatch({ type: 'ADD_NEW_CLIENT', data: client }));
 			handleClose();
 			toast.success('Successfull Added!');
 		});
