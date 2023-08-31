@@ -15,10 +15,25 @@ function Clients() {
 
 	const [searchValue, setSearchValue] = useState<string>('');
 	const [open, setOpen] = useState<boolean>(false);
+	const [clientsData, setClientsData] = useState<IClient[] | []>(clients);
 
 	useEffect(() => {
 		getClients().then((clients) => dispatch({ type: 'FETCH_ALL_CLIENTS', data: clients }));
 	}, [dispatch]);
+
+	useEffect(() => {
+		if (searchValue) {
+			setClientsData(
+				clients.filter(
+					(client) =>
+						client.firstName.toLowerCase().includes(searchValue.toLowerCase()) ||
+						client.lastName.toLowerCase().includes(searchValue.toLowerCase())
+				)
+			);
+		} else {
+			setClientsData(clients);
+		}
+	}, [clients, searchValue]);
 
 	const handleOpen = () => setOpen(true);
 	const handleClose = () => setOpen(false);
@@ -41,7 +56,7 @@ function Clients() {
 			</Grid>
 
 			<Paper sx={{ margin: 'auto', marginTop: 3 }}>
-				<ClientTable clients={clients} />
+				<ClientTable clients={clientsData} />
 			</Paper>
 
 			<Modal open={open} handleClose={handleClose} title='Create new client'>
