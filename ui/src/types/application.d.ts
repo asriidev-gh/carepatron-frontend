@@ -9,3 +9,5 @@ interface IClient {
 interface IApplicationState {
   clients: IClient[];
 }
+
+type INewClient = Omit<IClient, 'id'>;

@@ -6,6 +6,7 @@ import ClientTable from './ClientTable';
 import { getClients } from '../../services/api';
 import SearchTextInput from '../../components/SearchInput';
 import Modal from '../../components/Modal';
+import FormStepper from '../../components/FormStepper';
 
 function Clients() {
 	const { state, dispatch } = useContext(StateContext);
@@ -43,7 +44,7 @@ function Clients() {
 			</Paper>
 
 			<Modal open={open} handleClose={handleClose} title='Create new client'>
-				Modal Content here..
+				<FormStepper handleClose={handleClose} />
 			</Modal>
 		</Page>
 	);
